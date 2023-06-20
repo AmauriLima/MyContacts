@@ -1,11 +1,11 @@
 module.exports = function cors(request, response, next) {
-  const allowedOrigins = [
-    '*',
-    'http://localhost:3000',
-  ];
+  // const allowedOrigins = [
+  //   '*',
+  //   'http://localhost:3000',
+  // ];
 
-  const origin = request.get('origin');
-  const isAllowed = allowedOrigins.includes(origin);
+  // const origin = request.get('origin');
+  // const isAllowed = allowedOrigins.includes(origin);
 
   // if (isAllowed) {
   response.setHeader('Access-Control-Allow-Origin', '*');
