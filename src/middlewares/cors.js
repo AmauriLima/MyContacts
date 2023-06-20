@@ -1,5 +1,6 @@
 module.exports = function cors(request, response, next) {
   const allowedOrigins = [
+    '*',
     'http://localhost:3000',
   ];
 
