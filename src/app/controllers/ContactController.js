@@ -66,7 +66,7 @@ class ContactController {
       return response.status(400).json({ error: 'Invalid category id' });
     }
 
-    if (!name) {
+    if (name !== undefined && !name) {
       return response.status(400).json({ error: 'Name is required' });
     }
 
@@ -83,7 +83,10 @@ class ContactController {
     }
 
     const contact = await ContactsRepository.update(id, {
-      name, email: email || null, phone, category_id: category_id || null,
+      name: name || contactExists.name,
+      email: email || contactExists.email,
+      phone: phone || contactExists.phone,
+      category_id: category_id || contactExists.category_id,
     });
 
     response.json(contact);
